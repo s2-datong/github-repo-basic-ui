@@ -11,16 +11,22 @@ const Repos: React.FC = () => {
 
     const repositories = location.state as any[];
 
+    const scrollable = {
+        height: '90vh',
+        overflow: 'scroll'
+    }
+
     return (
         <div>
             <button onClick={() => navigate(-1)}>
                 <img src={BackButton} width={'50px'}/>
             </button>
             <h3>Repositories for {username} </h3>
-
+            <div style={scrollable}>
             {
                 repositories.map((repo: any, index) => <RepoCard name={repo.name} url={`/${username}/${repo.name}`} key={index} /> )
             }
+            </div>
         </div>
     )
 }

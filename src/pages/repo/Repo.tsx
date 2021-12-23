@@ -25,7 +25,6 @@ const Repo: React.FC = () => {
                 <img src={BackButton} width={'50px'}/>
             </button>
             <h3>Repo</h3>
-            <p>{`${loading}`}</p>
             <ReactMarkdown children={result} remarkPlugins={[remarkGfm]} />
         </div>
     )
