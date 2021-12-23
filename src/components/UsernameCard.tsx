@@ -3,6 +3,7 @@ import { useFetchRepos } from '../hooks/useFetchRepos'
 import { useRepository } from '../hooks/useRepository'
 import { useNavigate } from 'react-router-dom'
 import { Input, Button } from '@chakra-ui/react'
+import FidgetSpinner from '../assets/Fidget-spinner.gif'
 
 export const UsernameCard: React.FC = () => {
     const [username, setInputUsername] = useState('')
@@ -36,7 +37,10 @@ export const UsernameCard: React.FC = () => {
         <div style={style as React.CSSProperties}>
             <h3>Please enter your Github username </h3>
             <Input value={username} onChange={handleChange} placeholder='Github Username' />
-            <Button onClick={fetchRepositories}>Get Repositories</Button>
+            <Button onClick={fetchRepositories}>
+                {loading && <img src={FidgetSpinner} width={'30px'}/> }
+                {!loading && <span>Get Repositories</span> }
+            </Button>
         </div>
     )
 }

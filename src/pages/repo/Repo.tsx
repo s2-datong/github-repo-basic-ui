@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useFetchReadme } from '../../hooks/useFetchReadme'
 import remarkGfm from 'remark-gfm'
+import BackButton from '../../assets/back-button.svg'
 
 const Repo: React.FC = () => {
 
     const {username = '', repo = ''} = useParams()
     const {result, loading} = useFetchReadme(username, repo)
+    const navigate = useNavigate()
 
     const style = {
         height: '100%',
@@ -19,6 +21,9 @@ const Repo: React.FC = () => {
 
     return (
         <div style={style as React.CSSProperties}>
+            <button onClick={() => navigate(-1)}>
+                <img src={BackButton} width={'50px'}/>
+            </button>
             <h3>Repo</h3>
             <p>{`${loading}`}</p>
             <ReactMarkdown children={result} remarkPlugins={[remarkGfm]} />

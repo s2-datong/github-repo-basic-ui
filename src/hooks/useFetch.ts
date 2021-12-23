@@ -22,6 +22,10 @@ export const useFetch = (method: string, url: string, setResult: Function, data?
             setResult(json)
             setLoading(false)
         })
+        .finally(() => {
+            setLoading(false)
+        })
+        
     }, [method, url])
 
     return {
