@@ -24,17 +24,8 @@ export const UsernameCard: React.FC = () => {
         }
     }, [repositories])
 
-    const style = {
-        maxWidth: '500px',
-        height: '300px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        padding: '30px'
-    }
-
     return (
-        <div style={style as React.CSSProperties}>
+        <div className='username-card'>
             <h3>Please enter your Github username </h3>
             <Input value={username} onChange={handleChange} placeholder='Github Username' />
             <Button onClick={fetchRepositories}>

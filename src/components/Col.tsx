@@ -1,12 +1,8 @@
-export const Col: React.FC<{style?: any}> = ({children, style}) => {
+import '../css/Col.css'
+export const Col: React.FC<{style?: any, className?: string}> = ({children, style, className}) => {
 
-    const _style = {
-        ...style,
-        height: '100%',
-        width: '50vw'
-    };
     return (
-        <div style={_style}>
+        <div className={`col ${className}`} style={style}>
             {children}
         </div>
     )

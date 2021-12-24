@@ -9,18 +9,9 @@ import './home.css'
 
 const Home: React.FC = () => {
 
-    const style = {
-        backgroundColor: '#632dc2',
-        color: '#fff',
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        alignItems: 'center'
-    }
-
     return (
         <div className="flex-container">
-            <Col style={style}>
+            <Col className='side'>
                 <img src={GithubLogo} width={'300px'}/>
                 <h2>API Project</h2>
             </Col>

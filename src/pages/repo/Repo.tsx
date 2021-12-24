@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useFetchReadme } from '../../hooks/useFetchReadme'
 import remarkGfm from 'remark-gfm'
 import BackButton from '../../assets/back-button.svg'
+import { MiniLoader } from '../../components/MiniLoader'
+import './repo.css'
 
 const Repo: React.FC = () => {
 
@@ -11,22 +13,20 @@ const Repo: React.FC = () => {
     const {result, loading} = useFetchReadme(username, repo)
     const navigate = useNavigate()
 
-    const style = {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '30px',
-        overflowY: 'auto'
-    };
-
     return (
-        <div style={style as React.CSSProperties}>
+        <div className='repo'>
             <button onClick={() => navigate(-1)}>
                 <img src={BackButton} width={'50px'}/>
             </button>
             <h3>Repo</h3>
-            <ReactMarkdown children={result} remarkPlugins={[remarkGfm]} />
+            { 
+                loading ? 
+                    <MiniLoader /> :
+                    <ReactMarkdown children={result} remarkPlugins={[remarkGfm]} />
+            }
         </div>
+       
+        
     )
 }
 

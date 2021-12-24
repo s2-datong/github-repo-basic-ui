@@ -1,0 +1,9 @@
+div.mini-loader {
+    position: relative;
+    height: 100px;
+    top: 40vh;
+    display: flex;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+}
