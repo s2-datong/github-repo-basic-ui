@@ -4,6 +4,7 @@ import { useRepository } from '../hooks/useRepository'
 import { useNavigate } from 'react-router-dom'
 import { Input, Button } from '@chakra-ui/react'
 import FidgetSpinner from '../assets/Fidget-spinner.gif'
+import '../css/UsernameCard.css'
 
 export const UsernameCard: React.FC = () => {
     const [username, setInputUsername] = useState('')
