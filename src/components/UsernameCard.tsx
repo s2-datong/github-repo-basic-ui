@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react'
+import React, { useEffect, useState, KeyboardEventHandler }  from 'react'
 import { useFetchRepos } from '../hooks/useFetchRepos'
 import { useRepository } from '../hooks/useRepository'
 import { useNavigate } from 'react-router-dom'
@@ -25,10 +25,14 @@ export const UsernameCard: React.FC = () => {
         }
     }, [repositories])
 
+    const handleEnter: KeyboardEventHandler<HTMLInputElement> = (event) => {
+        event.key === 'Enter' && fetchRepositories()
+    }
+
     return (
         <div className='username-card'>
             <h3>Please enter your Github username </h3>
-            <Input value={username} onChange={handleChange} placeholder='Github Username' />
+            <Input value={username} onChange={handleChange} onKeyPress={handleEnter} placeholder='Github Username' />
             <Button onClick={fetchRepositories}>
                 {loading && <img src={FidgetSpinner} width={'30px'}/> }
                 {!loading && <span>Get Repositories</span> }
