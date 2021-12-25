@@ -3,4 +3,14 @@
     border-radius: 10px;
     background-color: #eee;
     margin: 10px;
+    display: flex;
+    align-content: space-between;
+    justify-content: center;
+}
+
+.repo-card > img,h4 {
+    padding: 20px;
+}
+.repo-card > .repo-btn {
+    margin: 20px 0;
 }
